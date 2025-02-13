@@ -1,4 +1,4 @@
-// Required modules
+//Importing Required modules
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -7,10 +7,10 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const User= require('./models/User');
 
-// Load environment variables
+// Loading environment variables
 dotenv.config();
 
-// Initialize Express app
+// Initializing Express app
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -26,7 +26,7 @@ app.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username, email, password: hashedPassword, fullName, gender, dob, country });
         await newUser.save();
-        res.status(201).json({ message: 'User registered successfully' });
+        res.status(201).json({ message: 'User is registered successfully' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

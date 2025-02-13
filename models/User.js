@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema , model}= mongoose;
 
+//user schema for storing the data of users
 const UserSchema = new Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
